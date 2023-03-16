@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, ChakraProvider, theme, Image } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import KanbanBoardComponent from './components/KanbanBoardComponent';
+import axios from 'axios';
+import { API_BASE_URL } from './utils/constants';
+import Footer from './components/Footer';
+
+import packetworxLogo from './assets/packet_worx_image.webp';
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      url: `${API_BASE_URL}/tasks`,
+    })
+      .then((response) => {
+        console.log(response);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ChakraProvider theme={theme}>
+      <div
+        style={{
+          minHeight: 'calc(100vh - 105px)',
+        }}
+      >
+        <div
+          style={{
+            marginTop: '40px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            height: '5vh',
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {/* <h1 style={{ textAlign: 'center' }}>Simple Kanban</h1> */}
+          <Box width={'300px'}>
+            <Image src={packetworxLogo} alt="packetworx" />
+          </Box>
+        </div>
+        <KanbanBoardComponent data={data} />
+      </div>
+      <Footer />
+    </ChakraProvider>
   );
 }
 
