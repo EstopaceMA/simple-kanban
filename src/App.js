@@ -38,7 +38,6 @@ function App() {
             height: '5vh',
           }}
         >
-          {/* <h1 style={{ textAlign: 'center' }}>Simple Kanban</h1> */}
           <Box width={'300px'}>
             <h1>Simple Kanban App</h1>
           </Box>
