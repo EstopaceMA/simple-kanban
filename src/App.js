@@ -1,11 +1,9 @@
-import { Box, ChakraProvider, theme, Image } from '@chakra-ui/react';
+import { Box, ChakraProvider, theme } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import KanbanBoardComponent from './components/KanbanBoardComponent';
 import axios from 'axios';
 import { API_BASE_URL } from './utils/constants';
 import Footer from './components/Footer';
-
-import packetworxLogo from './assets/packet_worx_image.webp';
 
 function App() {
   const [data, setData] = useState([]);
