@@ -42,7 +42,7 @@ function App() {
         >
           {/* <h1 style={{ textAlign: 'center' }}>Simple Kanban</h1> */}
           <Box width={'300px'}>
-            <Image src={packetworxLogo} alt="packetworx" />
+            <h1>Simple Kanban App</h1>
           </Box>
         </div>
         <KanbanBoardComponent data={data} />
