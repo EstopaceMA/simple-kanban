@@ -39,7 +39,7 @@ function App() {
           }}
         >
           <Box width={'300px'}>
-            <h1>Yeheyyy Github Actions!</h1>
+            <h1>Simple Kanban App</h1>
           </Box>
         </div>
         <KanbanBoardComponent data={data} />
